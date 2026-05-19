@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banned / Refuse List</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Comic Sans MS", cursive;
+            background: #0f0f0f;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* FLOATING BOX */
+        .warning-box {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid rgba(255, 0, 80, 0.4);
+            border-radius: 20px;
+
+            width: 90%;
+            max-width: 600px;
+            height: 70vh;
+
+            padding: 25px;
+
+            box-shadow: 0 0 40px rgba(255, 0, 80, 0.2);
+
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TITLE */
+        .warning-box h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* SCROLL AREA */
+        .scroll-area {
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* SCROLLBAR (optional aesthetic) */
+        .scroll-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scroll-area::-webkit-scrollbar-thumb {
+            background: rgba(255, 0, 80, 0.4);
+            border-radius: 10px;
+        }
+
+        /* LIST */
+        ul {
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* WARNING TEXT */
+        .note {
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="warning-box">
+    <h1>🚫 Restrictions / Blacklist / DNI</h1>
+
+    <div class="scroll-area">
+        <ul>
+        <h2>Content Restrictions</h2>
+            <li>Illegal content</li>
+            <li>Hate speech or discriminatory themes</li>
+            <li>Extreme fetish content (ABL, feral nsfw, cub art, etc.)</li>
+            <li>Anything involving minors</li>
+            <li>Non-consensual scenarios</li>
+            <li>AI training usage of my work</li>
+            <li>Anything that makes me uncomfortable (I reserve the right to refuse)</li>
+        <h2>Behavioral Restrictions</h2>
+            <li>Harassment, threats, or abusive behavior towards me or others</li>
+            <li>Attempting to circumvent blocks or bans I've set</li>
+            <li>Using my work to target or harass others</li>
+            <li>Any form of doxxing or invasion of privacy</li>
+            <li>Repeatedly violating my content restrictions (even after warnings)</li>
+        <h2>Blacklisted Individuals</h2>
+            
+        <h2>🚫 Do Not Interact (DNI)</h2>
+            <p>
+                Individuals I have previously blocked or had negative interactions with are not permitted to commission me, directly or indirectly.
+            </p>
+
+            <p class="note">
+                If you are aware that you are on my DNI list, do not attempt to interact, commission me, or obtain my work through others.
+            </p>
+            
+  <li>Artwork may not be transferred, resold, or given to individuals on my DNI list</li>
+  <li>Characters/designs created by me may not be shared with or used by individuals I have blocked</li>
+</ul>
+<p class="note">
+  I reserve the right to refuse or cancel any commission at any stage if I suspect it is being made on behalf of someone on my DNI list. Refunds will be issued at my discretion.
+</p>
+        </ul>
+
+        <p class="note">
+            By commissioning me, you acknowledge and agree to these restrictions.
+        </p>
+        <a href="commissions.html" class="back-btn">
+    ⬅ Back to Commissions
+</a>
+    </div>
+</div>
+
+</body>
+</html>

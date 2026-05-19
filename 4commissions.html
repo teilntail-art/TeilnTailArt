@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commissions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f14, #1a1a2e);
+      color: #fff;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      opacity: 0.7;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 0.5rem;
+    }
+
+    .quote {
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .quote::before {
+      content: "C";
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 2rem;
+      color: #ff79c6;
+      opacity: 0.6;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    .price {
+      color: #ff79c6;
+      font-weight: 600;
+    }
+
+    .form-box {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea, select {
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.08);
+      color: white;
+    }
+
+    button {
+      padding: 1rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #ff79c6, #8be9fd);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+    }
+
+    .tos {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+
+    .banned-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 20px;
+
+    background: rgba(255, 0, 80, 0.2);
+    color: white;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.banned-btn:hover {
+    background: rgba(255, 0, 80, 0.4);
+    transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>✨ Commissions ✨</h1>
+  <p>Open Slots: 5 / 5</p>
+  <div class="nav">
+    <a href="#types">Types</a>
+    <a href="#order">Order</a>
+    <a href="#tos">TOS</a>
+  </div>
+</header>
+
+<section class="section" id="types">
+  <div class="title">Commission Types</div>
+  <div class="cards">
+
+    <div class="card">
+      <img src="headshot.jpg" />
+      <h3>Headshot</h3>
+      <p>Bust-up, simple bg</p>
+      <p class="price">$15</p>
+      <img src="headshot2.jpg" />
+      <h3>+ Shading</h3>
+    <p>More depth and detail</p>
+      <p class="price">+$5</p>
+    <p class="price">* Add $5 for each additional character</p>
+    </div>
+
+    <div class="card">
+      <img src="halfbody.jpg" />
+      <h3>Half Body</h3>
+      <p>Waist-up detail</p>
+      <p class="price">$25</p>
+        <img src="halfbody2.jpg" />
+        <h3>+ Shading</h3>
+        <p>More depth and detail</p>
+        <p class="price">+$10</p>
+        <p class="price">* Add $8 for each additional character</p>
+    </div>
+
+    <div class="card">
+      <img src="fullbody.jpg" />
+      <h3>Full Body</h3>
+      <p>Full pose + detail</p>
+      <p class="price">$40</p>
+        <img src="fullbody2.jpg" />
+        <h3>+ Shading</h3>
+        <p>More depth and detail</p>
+        <p class="price">+$15</p>
+        <p class="price">* Add $15 for each additional character</p>
+    </div>
+
+  </div class="bottom">
+    <p style="text-align:center; margin-top:2rem; opacity:0.8;">* Prices may vary based on complexity and details</p>
+    <p style="text-align:center; opacity:0.8;">* Additional characters prices listed above</p>
+  </div>
+
+</section>
+<p style="text-align:center; margin-top:2rem">
+    Please read my 
+    <a href="6ResBannedList.html" target="_blank" class="banned-btn">
+    🚫 Restrictions / Blacklist / DNI
+</a>
+    <p style="text-align:center; margin-top:1rem">
+        before commissioning!
+    </p>
+</p>
+<p style="text-align: center;"><strong>By commissioning me, you agree to my terms and content restrictions.</strong></p>
+
+<section class="section" id="order">
+  <div class="title">Order Form</div>
+  <div class="form-box">
+    <form>
+      <input type="text" placeholder="Name" required />
+      <input type="text" placeholder="Username and Platform (e.g. @user on Twitter)" required />
+      <input type="email" placeholder="Email" required />
+      <input type="text" placeholder="Payment Method (e.g. PayPal, Kofi)" required />
+      <input type="text" placeholder="Reference Image URL" optional />
+      <select required>
+        <option value="">Select Type</option>
+        <option>Headshot</option>
+        <option>Half Body</option>
+        <option>Full Body</option>
+      </select>
+      <textarea placeholder="Describe your commission..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="title">Reviews</div>
+  <div class="cards">
+
+    <div class="card quote">
+      <p>“Absolutely loved the commission! The artist nailed every detail and was super friendly 💖”</p>
+      <span>- @happyclient</span>
+    </div>
+
+    <div class="card quote">
+      <p>“Fast turnaround and amazing quality. 10/10 would commission again!”</p>
+      <span>- @artfan</span>
+    </div>
+
+    <div class="card quote">
+      <p>“The process was smooth and the result was even better than I imagined ✨”</p>
+      <span>- @coolperson</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="tos">
+  <div class="title">Terms of Service</div>
+  <div class="form-box tos">
+    <p>- Payment upfront via Kofi, Cash App, or PayPal</p>
+    <p>- Refunds available up until line art approval. (Subject to review)</p>
+    <p>- Personal use only unless agreed. (just be sure to credit me! cx)</p>
+    <p>- NO CNC, Pedophelia, ABL, feral nsfw, cub art, or hate content. (I reserve the right to refuse any commission)</p>
+  </div>
+</section>
+
+</div>
+    <br>
+    <a href="1index.html">⬅ back to home</a>
+
+</div>
+
+<footer>
+  <p>© 2026 Teil.n.Tail</p>
+</footer>
+
+</body>
+</html>
