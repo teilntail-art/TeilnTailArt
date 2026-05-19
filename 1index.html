@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teil n' Tail Art</title>
+
+    <style>
+        body {
+            margin: 0;
+             font-family: "Comic Sans MS", cursive;
+              color: rgb(119, 255, 210);
+
+            background-image: url("Images/MainBG.png");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title-img {
+            width: 700px;
+            max-width: 90%;
+        }
+        
+        .corner-gif {    
+            position: fixed;
+             top: 10px;
+            right: 10px;
+            width: 150px;
+            height: auto;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .corner-gif2 {    
+            position: fixed;
+             top: 10px;
+            left: 10px;
+            width: 150px;
+            height: auto;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        /* SCROLL BAR */
+        .marquee {
+            background: hotpink;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        /* MAIN LAYOUT */
+        .main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .about, .center, .guestbook {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            
+        }
+.about {
+    width: 20%;
+    border: 4px dashed lime;
+}
+       .about-title-gif {
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto 10px;
+    }
+
+        .center {
+            width: 50%;
+            text-align: center;
+        }
+
+    .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            padding: 15px;
+            background: cyan;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            border: 3px solid white;
+            transition: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: hotpink;
+            color: white;
+            transform: scale(1.05) rotate(-1deg);
+        }
+
+    .guestbook {
+            width: 25%;
+            border: 4px dashed lime;
+        }
+
+        .comment {
+            background: white;
+            color: black;
+            margin: 8px 0;
+            padding: 8px;
+            border-left: 4px solid hotpink;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-top: 5px;
+            padding: 5px;
+            border: 2px solid lime;
+            background: black;
+            color: white;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            background: hotpink;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+    .footer {
+            text-align: center;
+            padding: 20px;
+            color: hotpink;
+        }
+
+    .socials a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background: black;
+            border: 2px solid hotpink;
+            color: hotpink;
+            text-decoration: none;
+        }
+
+        .socials a:hover {
+            background: hotpink;
+            color: black;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        @keyframes floaty {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(6px); }
+    100% { transform: translateY(0px); }
+}
+
+.corner-gif {
+    animation: floaty 3s ease-in-out infinite;
+}
+
+.corner-gif2 {
+    animation: floaty 4s ease-in-out infinite;
+}
+
+.zodiac-gif {
+    filter: drop-shadow(0 0 6px cyan);
+    width: 120px;
+    display: block;
+    margin: 10px auto 0;
+}
+
+.enter-title {
+    filter: drop-shadow(0 0 8px hotpink);
+    width: 100%;
+    max-width: 250px;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+
+.floaty-creature {
+    position: fixed;
+    width: 80px;
+    pointer-events: none;
+    z-index: 998;
+}
+
+.floaty-creature {
+    transition: transform 0.2s linear;
+}
+
+@keyframes drift {
+    0%   { transform: translate(0px, 0px); }
+    50%  { transform: translate(10px, -10px); }
+    100% { transform: translate(0px, 0px); }
+}
+
+.guestbook-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guest-title-gif {
+    width: 60px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.section-box {
+  margin-top: 20px;
+  padding: 15px;
+
+  background: rgba(0,0,0,0.6);
+  border: 3px dashed cyan;
+  border-radius: 10px;
+}
+
+.section-box h2 {
+  margin-bottom: 10px;
+  color: cyan;
+}
+
+.section-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.section-box li {
+  margin: 5px 0;
+}
+
+/* ---------------- MOBILE / TABLET RESPONSIVE ---------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Prevent layout overflow */
+.main {
+    flex-wrap: wrap;
+}
+
+/* Make text areas behave */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about,
+    .center,
+    .guestbook {
+        width: 95%;
+        max-width: 700px;
+    }
+
+    .center {
+        order: 1;
+    }
+
+    .about {
+        order: 2;
+    }
+
+    .guestbook {
+        order: 3;
+    }
+
+    .corner-gif,
+    .corner-gif2 {
+        width: 80px;
+        opacity: 0.7;
+    }
+
+    .nav-btn {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .socials a {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .guestbook-title {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .guest-title-gif {
+        margin-left: 0;
+    }
+
+    .floaty-creature {
+        width: 50px;
+    }
+
+    marquee {
+        font-size: 14px;
+    }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 500px) {
+.floaty-creature {
+    display: none;
+}
+    body {
+        font-size: 14px;
+    }
+
+    .title-img {
+        width: 95%;
+    }
+
+    .about,
+    .center,
+    .guestbook {
+        padding: 10px;
+    }
+
+    .nav-btn {
+        font-size: 16px;
+    }
+
+    .corner-gif,
+    .corner-gif2 {
+        width: 60px;
+    }
+
+    .zodiac-gif {
+        width: 90px;
+    }
+
+    .enter-title {
+        max-width: 180px;
+    }
+}
+    </style>
+</head>
+<body>
+<img src="Images/ILC.gif" class="corner-gif">
+<img src="Images/MLP.gif" class="corner-gif2">
+
+<!-- HEADER -->
+<div class="header">
+    <img src="Images/Logo.png" class="title-img">
+
+</div>
+
+<!-- SCROLL -->
+<marquee class="marquee">
+꒰ঌ( •ө• )໒꒱ WELCOME TO THE FLOCK!!1!111!!!1 ☁︎ CLICK BUTTONS BELOW ☁︎ CAUTION: SMALL AIRCRAFT ZONE ☁︎ ENJOY YOUR STAY!!1!111!!!1 ꒰ঌ( •ө• )໒꒱
+</marquee>
+
+/* MAIN */
+<div class="main">
+
+   <div class="about">
+
+    <!-- GIF TITLE -->
+    <img src="Images/AboutMe-Title.gif" class="about-title-gif">
+
+    <p><b>✿⁠ Name:</b> Tae Titus</p>
+    <p><b>✿⁠ Age:</b> 25</p>
+    <p><b>✿⁠ Pronouns:</b> They/Them/She/He</p>
+    <p><b>✿⁠ Status:</b> ¯\_(ツ)_/¯</p>
+    <p><b>✿⁠ Vibe:</b> Rose (˵ ¬ᴗ¬˵)</p>
+    <p><b>✿⁠ MBTI:</b> INTJ</p>
+    <p><b>✿⁠ Birthday:</b> Dec 8 ♐</p>
+
+<img src="Images/Sagg.gif" class="zodiac-gif">
+
+</div>
+        
+    <div class="center">
+        <img src="Images/enter.gif" class="enter-title">
+        <div class="nav-buttons">
+            <a href="2AboutMe.html" class="nav-btn">Meet the Artist</a>
+            <a href="3gallery.html" class="nav-btn">Gallery</a>
+            <a href="4commissions.html" class="nav-btn">Commissions</a>
+            <a href="5WebsiteComms.html" class="nav-btn">TBA</a>
+        </div>
+    </div>
+
+   <div class="guestbook">
+    <h2 class="guestbook-title">
+        GUESTBOOK
+        <img src="Images/beourguest.gif" class="guest-title-gif">
+    </h2>
+
+    <div id="comments"></div>
+    <input id="name" placeholder="your name">
+    <textarea id="message" placeholder="your message"></textarea>
+    <button onclick="addComment()">POST</button>
+</div>
+
+</div>
+
+<div class="footer">
+    <div class="socials">
+   <a href="https://www.instagram.com/teil.n.tail/" target="_blank">
+    <img src="Images/insta.png" class="icon">Instagram
+</a>
+
+<a href="https://twitter.com/teilntail" target="_blank">
+    <img src="Images/twitter.png" class="icon">Twitter/X (soon)
+</a>
+
+<a href="https://www.deviantart.com/YOURUSERNAME" target="_blank">
+    <img src="Images/deviantart.png" class="icon">DeviantArt
+</a>
+
+<a href="https://toyhou.se/TeilnTail" target="_blank">
+    <img src="Images/toyhouse.png" class="icon">ToyHouse
+</a>
+
+<a href="https://www.etsy.com/shop/TeilnTail" target="_blank">
+    <img src="Images/etsy.png" class="icon">Etsy (soon)
+</a>
+
+<a href="mailto:teilntail.art@gmail.com" target="_blank">
+    <img src="Images/email.png" class="icon">Email
+</a>
+
+<a href="https://ko-fi.com/teilntail" target="_blank">
+    <img src="Images/kofi.png" class="icon">Ko-fi
+</a>
+</div>
+
+<div>
+    <img src="Images/bird1.gif" class="floaty-creature">
+    <img src="Images/bird2.gif" class="floaty-creature">
+    <img src="Images/bird3.gif" class="floaty-creature">
+</div>
+
+<script>
+function loadComments() {
+    const commentsDiv = document.getElementById("comments");
+    commentsDiv.innerHTML = "";
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+    comments.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "comment";
+        div.innerHTML = "<b>" + c.name + ":</b> " + c.message;
+        commentsDiv.appendChild(div);
+    });
+}
+
+function addComment() {
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    if (!name || !message) return;
+
+    const comments = JSON.parse(localStorage.getItem("comments")) || [];
+    comments.push({ name, message });
+
+    localStorage.setItem("comments", JSON.stringify(comments));
+
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+
+    loadComments();
+}
+
+loadComments();
+</script>
+
+<script>
+const creatures = document.querySelectorAll(".floaty-creature");
+
+creatures.forEach(creature => {
+    creature.style.left = Math.random() * window.innerWidth + "px";
+    creature.style.top = Math.random() * window.innerHeight + "px";
+});
+setInterval(() => {
+    creatures.forEach(creature => {
+        const driftX = (Math.random() - 0.5) * 10;
+        const driftY = (Math.random() - 0.5) * 10;
+        creature.style.transform += ` translate(${driftX}px, ${driftY}px)`;
+    });
+}, 2000);
+
+document.addEventListener("mousemove", (e) => {
+    creatures.forEach(creature => {
+        const rect = creature.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+
+        const dx = cx - e.clientX;
+        const dy = cy - e.clientY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+if (distance < 300) {
+    const strength = 2.5;
+    const moveX = dx * strength;
+    const moveY = dy * strength;
+
+    const jitterX = (Math.random() - 0.5) * 20;
+    const jitterY = (Math.random() - 0.5) * 20;
+
+    creature.style.transform = `translate(${moveX + jitterX}px, ${moveY + jitterY}px)`;
+} else {
+    creature.style.transform = "translate(0, 0)";
+}
+    });
+});
+</script>
+
+</body>
+</html>

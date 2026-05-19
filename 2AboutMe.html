@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Artist</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Comic Sans MS", cursive;
+            color: white;
+            background-image: url("Images/MainBG.png");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(0,0,0,0.7);
+            padding: 20px;
+            border: 4px dashed hotpink;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* TITLE BUTTON */
+        .title-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: black;
+            color: hotpink;
+            border: 3px dashed hotpink;
+            border-radius: 12px;
+            box-shadow: 0 0 10px hotpink;
+            transform: rotate(-1deg);
+            transition: 0.2s;
+        }
+
+        .title-btn:hover {
+            color: cyan;
+            border-color: cyan;
+            box-shadow: 0 0 15px cyan;
+            transform: scale(1.05);
+        }
+
+        /* ARTIST IMAGE */
+        .img {
+            width: 180px;
+            max-width: 100%;
+            border-radius: 50%;
+            border: 3px dashed hotpink;
+            padding: 6px;
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 10px hotpink;
+        }
+
+        .artist-wrap {
+            position: relative;
+            display: block;          /* change from inline-block */
+            margin: 20px auto;       /* centers it horizontally */
+            width: fit-content;      /* keeps it tight around the image */
+        }
+
+        /* DOGE FLOATERS */
+        .doge {
+            position: absolute;
+            width: 40px;
+            pointer-events: none;
+            animation: floatDoge 4s ease-in-out infinite;
+        }
+
+       .top-left {
+            top: -15px;
+            left: -15px;
+        }
+
+        .top-right {
+            top: -15px;
+            right: -15px;
+        }
+
+        .bottom-left {
+            bottom: -15px;
+            left: -15px;
+        }
+
+        .bottom-right {
+            bottom: -15px;
+            right: -15px;
+        }
+
+        @keyframes floatDoge {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* FLOATING EDGE GIFS */
+        .floating {
+            position: fixed;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .left { left: 0; }
+        .right { right: 0; }
+
+        .float {
+            position: absolute;
+            animation: drift 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .float.top { top: 0; }
+        .float.middle { top: 40%; }
+        .float.bottom { bottom: 0; animation: driftSmall 6s ease-in-out infinite; }
+
+        .left .float { left: 15px; }
+        .right .float { right: 15px; }
+
+        @keyframes drift {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes driftSmall {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* SECTIONS */
+        .section-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.6);
+            border: 3px dashed cyan;
+            border-radius: 10px;
+        }
+
+        .section-box h2 {
+            margin-bottom: 10px;
+            color: cyan;
+        }
+
+        .section-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-box li {
+            margin: 5px 0;
+        }
+
+        /* PETS */
+        .pet {
+            margin-top: 10px;
+            padding: 8px;
+            border: 2px dashed hotpink;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .pet:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 10px hotpink;
+        }
+
+        .pet-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pet-text {
+            text-align: left;
+        }
+
+        .pet-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px dashed cyan;
+            animation: petFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes petFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* TWO CATS LAYOUT */
+        .two-pets {
+            justify-content: space-between;
+        }
+
+        .two-pets .pet-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .left-pet { margin-right: 10px; }
+        .right-pet { margin-left: 10px; }
+
+        /* ---------------- RESPONSIVE FIXES ---------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Tablet + Mobile */
+@media (max-width: 900px) {
+
+    .container {
+        width: 92%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .floating {
+        width: 55px;
+    }
+
+    .title-btn {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+
+    .doge {
+        width: 30px;
+    }
+
+    .section-box {
+        padding: 12px;
+    }
+
+    .pet-wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .pet-text {
+        text-align: center;
+    }
+
+    .two-pets {
+        gap: 10px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 500px) {
+
+.floating {
+    display: none;
+}
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 12px;
+        border-width: 3px;
+    }
+
+    .img {
+        width: 140px;
+    }
+
+    .doge {
+        width: 24px;
+    }
+
+    .top-left,
+    .top-right,
+    .bottom-left,
+    .bottom-right {
+        top: -10px;
+        bottom: -10px;
+        left: -10px;
+        right: -10px;
+    }
+
+    .title-btn {
+        font-size: 20px;
+    }
+
+    .floating {
+        opacity: 0.35;
+        width: 40px;
+    }
+
+    .pet-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .pet {
+        padding: 10px;
+    }
+
+    a {
+    color: cyan;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+    .section-box h2 {
+        font-size: 20px;
+    }
+
+    p,
+    li {
+        line-height: 1.5;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title-btn">𓅼 Meet the Artist ༄.°</h1>
+
+<div class="artist-wrap">
+  <img src="Images/THEArtist.jpg" class="img">
+
+  <img src="Images/doge1.gif" class="doge top-left">
+  <img src="Images/doge2.gif" class="doge top-right">
+  <img src="Images/doge3.gif" class="doge bottom-left">
+  <img src="Images/doge4.gif" class="doge bottom-right">
+</div>
+
+<p>Hi!1!!111! I'm TAE✨</p>
+
+<p>
+I am a hobby artist who hopes to reach more people with my art!
+<br>
+My art is fuelled by ADHD rage, and the blood of my enemies. I also really like birds.
+</p>
+
+<div class="section-box">
+<h2>✦ Fun Facts ✦</h2>
+<ul>
+<li>𖦹 TBI Survivor! (Age 5)</li>
+<li>𖦹 Chronically Ill and Disabled</li>
+<li>𖦹 Dual English Degree</li>
+<li>𖦹 Suffers from Eldest Daughter</li>
+<li>𖦹 Paranormal enjoyer 👻</li>
+<li>𖦹 Constant State of Sleepy</li>
+</ul>
+</div>
+
+<div class="section-box">
+<h2>✦ The Creatures ✦</h2>
+
+<div class="pet">
+<div class="pet-wrap">
+<img src="Images/loki.png" class="pet-img">
+<div class="pet-text">
+<strong>Loki (Cockatiel)</strong><br>
+The OG Old Man; Obsessed with himself and his reflection. Will screm.
+</div>
+</div>
+</div>
+
+<div class="pet">
+<div class="pet-wrap">
+<img src="Images/zazu.png" class="pet-img">
+<div class="pet-text">
+<strong>Zazu (Caique)</strong><br>
+Certified Shitter. Houdini- escapes cage at will. Screm but loud loud.
+</div>
+</div>
+</div>
+
+<div class="pet">
+<div class="pet-wrap two-pets">
+<img src="Images/sansa.png" class="pet-img left-pet">
+<div class="pet-text">
+<strong>Sansa & Arya (Cats)</strong><br>
+Og orange, girl cat, and her feral, gray ball of fuzz sister.
+</div>
+<img src="Images/arya.png" class="pet-img right-pet">
+</div>
+</div>
+
+<div class="pet">
+<div class="pet-wrap">
+<img src="Images/charlotte.png" class="pet-img">
+<div class="pet-text">
+<strong>Charlotte (Dog)</strong><br>
+Those 3-8 months... ready for the terrible 1-3 year phase.
+</div>
+</div>
+</div>
+
+</div>
+
+<p>
+Thanks for visiting ❤︎
+</p>
+
+<a href="1index.html">⬅ back to home</a>
+
+</div>
+
+<div class="floating left">
+<img src="Images/FREAK.gif" class="float top">
+<img src="Images/NARUTO.gif" class="float middle">
+</div>
+
+<div class="floating right">
+<img src="Images/KITTY.gif" class="float middle">
+</div>
+
+</body>
+</html>
